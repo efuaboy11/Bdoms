@@ -1,0 +1,60 @@
+import { AdminDashFrame} from "../../component/adminDashFRame"
+import { Link } from "react-router-dom"
+import {faUser} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+export const EditSchoolItemPage = () =>{
+	return(
+		<div>
+      <div className="position-sticky">
+        <AdminDashFrame />
+      </div>
+			<section>
+        <div className="main-content">
+          <div className="container-lg">
+            <div className="row my-3 pb-4">
+              <div className="col-md-8 col-sm-6 col-6">
+                <h5>Edit School ITEM</h5>
+              </div>
+            </div>
+
+
+            <section>
+              <div className="boxing-shadow">
+                <div className="navyblue-blackground-dash py-4">
+                  <p className="text-center">PLEASE FILL IN THE REQUIRED DETAILS</p>
+                </div>
+
+               <form action="">
+                  <div className="row  mx-2">
+                      <div className="col-md-6 mt-3">
+                        <label htmlFor="" className="p-2">Name</label>
+                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter name..."/>
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label htmlFor="" className="p-2">Amount</label>
+                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter Amount.."/>
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label htmlFor="" className="p-2">Image</label>
+                        <input className="admin-input form-dark py-2 px-3" type="file" placeholder="Search Teacher ID..."/>
+                      </div>
+                      <div className="col-md-10 pt-3 pb-5 mb-4">
+                        <button className="admin-btn py-2 px-5">Update</button>
+                        
+                      </div>
+                  </div>
+
+               </form>
+
+              </div>
+            </section>
+
+        
+          </div>
+        </div>
+
+      </section>
+		</div>
+	)
+}
