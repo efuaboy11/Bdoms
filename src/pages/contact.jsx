@@ -18,11 +18,11 @@ export const Contact = () =>{
         <div class="container-lg">
           <div class="d-md-flex d-inline justify-content-between">
             <div>
-              <h1 class="l-text fw-bold">Contact <span class="text-secondary1">  Us</span></h1>
+              <h1 class="l-text fw-bold dark-font">Contact <span class="text-secondary1"> Us</span></h1>
             </div>
 
             <div class="d-lg-flex justify-content-between texts">
-              <a href="./index.html" class="px-4">HOME</a>
+              <Link to='/' class="px-4">Home</Link>
               <i class="fa-solid fa-arrow-right d-none d-md-block"></i>
               <p class="text-secondary1 px-4 d-none d-md-block">US</p>           
             </div>

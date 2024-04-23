@@ -12,7 +12,9 @@ a{
   background-color: #3E001F;
   color: #FFF4F4;
 }
-
+.dark-font{
+  color: #000;
+}
 .secondary-background{
   background-color: #4F200D;
   color: white;

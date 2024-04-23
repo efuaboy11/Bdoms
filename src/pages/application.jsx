@@ -17,7 +17,7 @@ export const Application = () =>{
         <div class="container-lg">
           <div class="d-md-flex d-inline justify-content-between">
             <div>
-              <h1 class="l-text fw-bold">Teacher <span class="text-secondary1">  Application</span></h1>
+              <h1 class="l-text fw-bold dark-font">Teacher <span class="text-secondary1">  Application</span></h1>
             </div>
 
             <div class="d-lg-flex justify-content-between texts">

@@ -398,7 +398,7 @@ a{
   /* left: -250px;  */
   transition: 1s ease;
   color: #fff;
-  z-index: 10000000000000000000000000000000000000000000000000000000000;
+  z-index: 10000000000;
 
 }
 .sidebar-list{
