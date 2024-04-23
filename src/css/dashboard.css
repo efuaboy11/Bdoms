@@ -194,7 +194,7 @@ a:hover{
 
 
 
-/* .overlay {
+.overlay-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -204,7 +204,7 @@ a:hover{
   backdrop-filter: blur(4px);
   z-index: 100;
   transition: all 0.5s;
-} */
+}
 
 .hidden {
   visibility: hidden;

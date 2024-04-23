@@ -1,10 +1,11 @@
 import "../css/dashboard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCircleUser, faHouse, faMoneyBills, faChartSimple, faCartShopping, faAngleDown, faChartLine, faBookOpenReader, faBookOpen, faBell,faArrowLeft, faBars, faXmark} from "@fortawesome/free-solid-svg-icons"
-import { useEffect,  useRef} from "react"
+import { useEffect,  useRef, useState} from "react"
 import { Link, useLocation} from "react-router-dom"
 
 export const DashFrame = () =>{
+  const [overlay, setOverlay] = useState(false)
   const sidebar = useRef(null)
   const studentInfo = useRef(null)
   const location = useLocation();
@@ -23,12 +24,14 @@ export const DashFrame = () =>{
     if (sidebar.current) {
       sidebar.current.style.transform = `translateX(${0}px)`;
     }
+    setOverlay(!overlay)
   };
 
   const closeSidebar = () =>{
     if (sidebar.current) {
       sidebar.current.style.transform = `translateX(${-250}px)`;
     }  
+    setOverlay(!overlay)
   }
 
   const showStudentInfo = () =>{
@@ -188,7 +191,7 @@ export const DashFrame = () =>{
       </div>
 
 
-      <div class="dashboard-content">
+      <div class={`dashboard-content ${overlay ? "overlay-background" : ""}`}>
         <nav class="text-light d-flex align-items-center justify-content-between">
           <div class="menu-bar mx-3" onClick={showSidebar}><FontAwesomeIcon icon={faBars} className="sm-text dashboard-menu-bar"/> </div>
           <div class="d-flex align-items-center">
