@@ -95,10 +95,10 @@ export const AdminDashFrame = () =>{
 
   return(
     <div>
-      <div class="sidebar admin-sidebar scroll-bar-y" ref={sidebar}>
+      <div class="sidebar admin-sidebar" ref={sidebar}>
         <div class="sidebar-head pt-3 mx-4 "><h4>ADMIN PANEL</h4><FontAwesomeIcon icon={faArrowLeft} onClick={closeSidebar} className="close-sidebar pt-1 sm-text cursor-pointer"/></div>
         <hr/>
-        <ul className=" sidebar-list">
+        <ul className=" sidebar-list scroll-bar-y admin-sidebar-height">
           <li class={`nav-item ps-3 py-3 fee  ${isActiveDashLink("/admin") ?"active-dash-link": ""}`}>
             <FontAwesomeIcon icon={faMoneyBills} className="pe-4"/>    
             <Link to="/admin" class={`payments`}>DASHBOARD</Link>             
@@ -213,6 +213,15 @@ export const AdminDashFrame = () =>{
 
                 <li class={`nav-item ps-4 py-2 ${isActiveDashLink("/admin/editResult") ?"active-dash-link": ""}`}>
                   <Link to="/admin/editResult">Edit Result</Link> 
+                </li>
+
+                <li class={`nav-item ps-4 py-2 ${isActiveDashLink("/admin/generateScratchNumber") ?"active-dash-link": ""}`}>
+                  <Link to="/admin/generateScratchNumber">Generate Scratch</Link> 
+                </li>
+
+                
+                <li class={`nav-item ps-4 py-2 ${isActiveDashLink("/admin/viewGeneratedScratchNumber") ?"active-dash-link": ""}`}>
+                  <Link to="/admin/viewGeneratedScratchNumber">View Scratch</Link> 
                 </li>
               </ul>
             </div>            
@@ -330,7 +339,7 @@ export const AdminDashFrame = () =>{
           
 
 
-          <li className={`nav-item ps-3 d-flex py-3 sch ${isActiveDashLink("/schemeStep1") ?"active-dash-link": ""}`}>
+          <li className={`nav-item ps-3 d-flex py-3 pb-5 sch ${isActiveDashLink("/schemeStep1") ?"active-dash-link": ""}`}>
             <FontAwesomeIcon icon={faBookOpenReader} className="pe-4"/> 
             <Link to="/schemeStep1" >Settings</Link>
           </li>

@@ -55,7 +55,14 @@ import {EditTeacherPage} from "./pages/backendPages/editTeacherPage"
 import {EditSchoolItemPage} from "./pages/backendPages/editSchoolItemPage"
 import {ResultPage} from "./pages/backendPages/resultPage"
 import {UploadScheme} from "./pages/backendPages/uploadScheme"
+import {GenerateScratchNumber} from "./pages/backendPages/generateScratchNumber"
+import {ScratchNumberPage} from "./pages/backendPages/scratchNumberPage"
+
+
+
 import PrivateRoute from './utils/PrivateRoute';
+import { ViewGeneratedScratchNumber } from './pages/backendPages/viewGeneratedScratchNumber';
+
 
 
 function App() {
@@ -119,6 +126,9 @@ function App() {
             <Route path='/admin/editSchoolItemPage' element={<EditSchoolItemPage/>}/>
             <Route path='/admin/resultPage' element={<ResultPage/>}/>
             <Route path='/admin/uploadScheme' element={<UploadScheme/>}/>
+            <Route path='/admin/generateScratchNumber' element={<GenerateScratchNumber/>}/>
+            <Route path='/admin/scratchNumberPage' element={<ScratchNumberPage/>}/>
+            <Route path='/admin/viewGeneratedScratchNumber' element={<ViewGeneratedScratchNumber/>}/>
           </Route>
         </Routes>
       </Router>
