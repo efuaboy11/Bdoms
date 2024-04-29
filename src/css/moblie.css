@@ -1,22 +1,6 @@
-
 @media screen and(max-width: 1300px){
 
-  #portal .portal-text{
-    display: none;
-  }
 
-  #portal .portal-heading{
-    display: block;
-    padding: 0px 20px;
-  }
-  #portal .sign-in-text{
-    display: none;
-  }
-
-  #portal input{
-    width: 96%;
-
-  }
 
   footer svg{
     margin-top: -600px;
@@ -187,15 +171,7 @@
   }
   
 }
-@media(max-width: 750px){
-  #portal .portal-input-password i{
-    position: absolute;
-    top: 0px;
-    transform: translate(400px, 15px);
-    font-size: 20px;
-  
-  }
-}
+
 
 @media(max-width: 500px){
   .student-info-modal{
@@ -206,19 +182,7 @@
     display: none;
   }
 
-  #portal .forms{
-    width: 100%;
-  }
 
-  #portal form{
-    margin-bottom: 20px;
-  }
-
-  #portal .portal-input-password i{
-    transform: translate(360px, 15px);
-
-  
-  }
 
   
 
@@ -229,34 +193,16 @@
   }
   
 }
-@media screen and (max-width: 450px){
-  #portal .portal-input-password i{
-    transform: translate(320px, 15px);
 
-  
-  }
-}
 
-@media screen and (max-width: 400px){
-  #portal .portal-input-password i{
-    transform: translate(280px, 15px);
-  }
-}
+
 
 @media screen and (max-width: 350px) {
-  #portal .portal-heading{
-    text-align: start;
-    padding: 0px;
-  }
-
 
   .dashboard-items i{
     display: none;
   }
 
-  #portal .portal-input-password i{
-    transform: translate(200px, 15px);
-  }
 
 }
 

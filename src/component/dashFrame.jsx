@@ -163,10 +163,6 @@ export const DashFrame = () =>{
               </ul>
             </div>
           </li>
-          <li className={`nav-item ps-3 d-flex py-3 res ${isActiveDashLink("/evaluation") ?"active-dash-link": ""}`}>
-            <FontAwesomeIcon icon={faChartLine} className="pe-4"/> 
-            <Link to="/evaluation" >WEEKLY EVALUATION</Link>
-          </li>
 
           <li className={`nav-item ps-3 d-flex py-3 res ${isActiveDashLink("/resultStep1") ?"active-dash-link": ""}`}>
             <FontAwesomeIcon icon={faChartLine} className="pe-4"/> 

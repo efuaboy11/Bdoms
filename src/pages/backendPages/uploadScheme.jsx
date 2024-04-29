@@ -54,7 +54,7 @@ export const UploadScheme = () =>{
                         <input className="admin-input form-dark py-2 px-3" type="datetime-local" />
                       </div>
                       <div className="col-md-10 pt-3 pb-5 mb-4">
-                        <input className="admin-btn py-2 px-5" type="submit" />
+                        <Link to="/admin/uploadSchemePage" className="admin-btn py-2 px-5">Submit</Link>
                         
                       </div>
                   </div>

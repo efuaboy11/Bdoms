@@ -339,7 +339,7 @@ export const AdminDashFrame = () =>{
           
 
 
-          <li className={`nav-item ps-3 d-flex py-3 pb-5 sch ${isActiveDashLink("/schemeStep1") ?"active-dash-link": ""}`}>
+          <li className={`nav-item ps-3 d-flex py-3 mb-5 sch ${isActiveDashLink("/schemeStep1") ?"active-dash-link": ""}`}>
             <FontAwesomeIcon icon={faBookOpenReader} className="pe-4"/> 
             <Link to="/schemeStep1" >Settings</Link>
           </li>
