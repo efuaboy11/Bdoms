@@ -3,8 +3,10 @@ import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import pic from "../../img/pexels-andrea-piacquadio-762041 (2).jpg"
+import { useState } from "react"
 
 export const ViewGeneratedScratchNumber = () =>{
+  const [session, setSessions] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -26,7 +28,7 @@ export const ViewGeneratedScratchNumber = () =>{
             <form action="">
               <div className="row add-student">
                 <div className="col-sm-11 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius view-student-input " placeholder="Search by Session..."/>
+                  <input type="text" className=" p-2 form-dark border-radius view-student-input " placeholder="Search by Session..." value={session} onChange={(e) => setSessions(e.target.value)}/>
                 </div>
               </div>            
             </form> 

@@ -2,8 +2,10 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const AddSubject = () =>{
+  const [subject, setSubject] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -31,7 +33,7 @@ export const AddSubject = () =>{
 
                 <div className="row mx-2">
                   <div className="col-md-10 mt-5">
-                    <input className="delete-student-input form-dark py-2 px-3" type="text" placeholder="Enter Subject..."/>
+                    <input className="delete-student-input form-dark py-2 px-3" type="text" placeholder="Enter Subject..." value={subject} onChange={(e) => setSubject(e.target.value)}/>
                   </div>
 
                   <div className="d-flex col-sm-3 py-2">

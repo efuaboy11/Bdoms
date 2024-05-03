@@ -14,10 +14,8 @@ import { PaymentStep1 } from './pages/dashboardPages/paymentStep1';
 import { Scheme1 } from './pages/dashboardPages/scheme1';
 import { Result1 } from './pages/dashboardPages/result1';
 import { PaymentHistory } from './pages/dashboardPages/paymentHistory';
-import { TimeTable } from './pages/dashboardPages/timetable';
 import { Evaluation } from './pages/dashboardPages/evaluation';
 import { SchoolItems } from './pages/dashboardPages/schoolItems';
-import { Notifications } from './pages/dashboardPages/notification';
 import {AdminDashHome} from "./pages/backendPages/adminDashHome";
 import {ViewAllStudents} from "./pages/backendPages/viewAllSudent"
 import {AddStudent} from "./pages/backendPages/addStudent1"
@@ -62,6 +60,7 @@ import { ViewGeneratedScratchNumber } from './pages/backendPages/viewGeneratedSc
 
 
 import PrivateRoute from './utils/PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
 ;
 
 
@@ -72,69 +71,67 @@ function App() {
   return (
     <div>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/portal" element={<Portal />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/application" element={<Application />} />
-          <Route path="/event" element={<Events />} />
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/portal" element={<Portal />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/application" element={<Application />} />
+            <Route path="/event" element={<Events />} />
 
-          {/* Private Route */}
-          <Route element={<PrivateRoute/>}>
-            <Route path="/dashboard" element={<DashBoard />}/>
-            <Route path="/paymentStep1" element={<PaymentStep1 />}/>
-            <Route path="/schemeStep1" element={<Scheme1 />}/>          
-            <Route path="/resultStep1" element={<Result1 />}/>
-            <Route path="/paymentHistory" element={<PaymentHistory />}/>
-            <Route path="/timetable" element={<TimeTable />}/>    
-            <Route path="/evaluation" element={<Evaluation />}/> 
-            <Route path="/schoolItems" element={<SchoolItems />}/>
-            <Route path="/notification" element={<Notifications />}/>
-            <Route path='/admin' element={<AdminDashHome />}/>
-            <Route path="/admin/viewAllStudent" element={<ViewAllStudents />}/>
-            <Route path="/admin/addStudent" element={<AddStudent />}/>
-            <Route path="/admin/deleteStudent" element={<DeleteStudent />}/>
-            <Route path='/admin/editStudent' element={<EditStudent/>}/>
-            <Route path='/admin/viewAllTeacher' element={<ViewAllTeacher/>}/>
-            <Route path='/admin/addTeacher' element={<AddTeacher/>}/>
-            <Route path='/admin/deleteTeacher' element={<DeleteTeacher/>}/>
-            <Route path='/admin/editTeacher' element={<EditTeacher />}/>
-            <Route path='/admin/viewSchooltItem' element={<ViewStudentItems/>}/>
-            <Route path='/admin/uploadSchoolItems' element={<UploadSchoolItems/>}/>          
-            <Route path='/admin/deleteSchoolItem' element={<DeleteSchoolItem/>}/>   
-            <Route path='/admin/EditSchoolItem' element={<EditSchoolItem/>}/>             
-            <Route path='/admin/ViewStudentResult' element={<ViewStudentResult/>}/> 
-            <Route path='/admin/UploadResult' element={<UploaadResult/>}/>    
-            <Route path='/admin/deleteResult' element={<DeleteResult/>}/>      
-            <Route path='/admin/editResult' element={<EditResult/>}/>  
-            <Route path='/admin/uploadEvent' element={<UploadEvent/>}/> 
-            <Route path='/admin/uploadNotification' element={<UploadNotification/>}/> 
-            <Route path='/admin/uploadPicture' element={<UploadPicture/>}/> 
-            <Route path='/admin/ViewEventUploads' element={<ViewEventUploaded/>}/> 
-            <Route path='/admin/ViewNotificationUploads' element={<ViewNotificationUploaded/>}/> 
-            <Route path='/admin/ViewPictureUploads' element={<ViewPictureUploaded/>}/> 
-            <Route path='/admin/AddSession' element={<AddSession/>}/> 
-            <Route path='/admin/AddClass' element={<AddClass/>}/> 
-            <Route path='/admin/addSubject' element={<AddSubject/>}/> 
-            <Route path='/admin/viewClass' element={<ViewClass/>}/>          
-            <Route path='/admin/viewSession' element={<ViewSession/>}/>            
-            <Route path='/admin/viewSubject' element={<ViewSubject/>}/>  
-            <Route path='/admin/sendEmail' element={<SendEmail/>}/>
-            <Route path='/admin/sendBulkEmail' element={<SendBulkEmail/>}/>
-            <Route path='/admin/viewEmail' element={<ViewEmail/>}/>
-            <Route path='/admin/editStudentPage' element={<EditStudentPage/>}/>   
-            <Route path='/admin/editTeacherPage' element={<EditTeacherPage/>}/>   
-            <Route path='/admin/editSchoolItemPage' element={<EditSchoolItemPage/>}/>
-            <Route path='/admin/resultPage' element={<ResultPage/>}/>
-            <Route path='/admin/uploadScheme' element={<UploadScheme/>}/>
-            <Route path='/admin/uploadSchemePage' element={<UploadSchemePage/>}/>
-            <Route path='/admin/generateScratchNumber' element={<GenerateScratchNumber/>}/>
-            <Route path='/admin/scratchNumberPage' element={<ScratchNumberPage/>}/>
-            <Route path='/admin/viewGeneratedScratchNumber' element={<ViewGeneratedScratchNumber/>}/>
-            
-          </Route>
-        </Routes>
+            {/* Private Route */}
+            <Route element={<PrivateRoute/>}>
+              <Route path="/dashboard" element={<DashBoard />}/>
+              <Route path="/paymentStep1" element={<PaymentStep1 />}/>
+              <Route path="/schemeStep1" element={<Scheme1 />}/>          
+              <Route path="/resultStep1" element={<Result1 />}/>
+              <Route path="/paymentHistory" element={<PaymentHistory />}/>
+              <Route path="/schoolItems" element={<SchoolItems />}/>
+              <Route path='/admin' element={<AdminDashHome />}/>
+              <Route path="/admin/viewAllStudent" element={<ViewAllStudents />}/>
+              <Route path="/admin/addStudent" element={<AddStudent />}/>
+              <Route path="/admin/deleteStudent" element={<DeleteStudent />}/>
+              <Route path='/admin/editStudent' element={<EditStudent/>}/>
+              <Route path='/admin/viewAllTeacher' element={<ViewAllTeacher/>}/>
+              <Route path='/admin/addTeacher' element={<AddTeacher/>}/>
+              <Route path='/admin/deleteTeacher' element={<DeleteTeacher/>}/>
+              <Route path='/admin/editTeacher' element={<EditTeacher />}/>
+              <Route path='/admin/viewSchooltItem' element={<ViewStudentItems/>}/>
+              <Route path='/admin/uploadSchoolItems' element={<UploadSchoolItems/>}/>          
+              <Route path='/admin/deleteSchoolItem' element={<DeleteSchoolItem/>}/>   
+              <Route path='/admin/EditSchoolItem' element={<EditSchoolItem/>}/>             
+              <Route path='/admin/ViewStudentResult' element={<ViewStudentResult/>}/> 
+              <Route path='/admin/UploadResult' element={<UploaadResult/>}/>    
+              <Route path='/admin/deleteResult' element={<DeleteResult/>}/>      
+              <Route path='/admin/editResult' element={<EditResult/>}/>  
+              <Route path='/admin/uploadEvent' element={<UploadEvent/>}/> 
+              <Route path='/admin/uploadNotification' element={<UploadNotification/>}/> 
+              <Route path='/admin/uploadPicture' element={<UploadPicture/>}/> 
+              <Route path='/admin/ViewEventUploads' element={<ViewEventUploaded/>}/> 
+              <Route path='/admin/ViewNotificationUploads' element={<ViewNotificationUploaded/>}/> 
+              <Route path='/admin/ViewPictureUploads' element={<ViewPictureUploaded/>}/> 
+              <Route path='/admin/AddSession' element={<AddSession/>}/> 
+              <Route path='/admin/AddClass' element={<AddClass/>}/> 
+              <Route path='/admin/addSubject' element={<AddSubject/>}/> 
+              <Route path='/admin/viewClass' element={<ViewClass/>}/>          
+              <Route path='/admin/viewSession' element={<ViewSession/>}/>            
+              <Route path='/admin/viewSubject' element={<ViewSubject/>}/>  
+              <Route path='/admin/sendEmail' element={<SendEmail/>}/>
+              <Route path='/admin/sendBulkEmail' element={<SendBulkEmail/>}/>
+              <Route path='/admin/viewEmail' element={<ViewEmail/>}/>
+              <Route path='/admin/editStudentPage' element={<EditStudentPage/>}/>   
+              <Route path='/admin/editTeacherPage' element={<EditTeacherPage/>}/>   
+              <Route path='/admin/editSchoolItemPage' element={<EditSchoolItemPage/>}/>
+              <Route path='/admin/resultPage' element={<ResultPage/>}/>
+              <Route path='/admin/uploadScheme' element={<UploadScheme/>}/>
+              <Route path='/admin/uploadSchemePage' element={<UploadSchemePage/>}/>
+              <Route path='/admin/generateScratchNumber' element={<GenerateScratchNumber/>}/>
+              <Route path='/admin/scratchNumberPage' element={<ScratchNumberPage/>}/>
+              <Route path='/admin/viewGeneratedScratchNumber' element={<ViewGeneratedScratchNumber/>}/>
+            </Route>
+          </Routes>
+        </AuthProvider>
       </Router>
     </div>
   );

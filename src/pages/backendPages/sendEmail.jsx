@@ -2,8 +2,14 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const SendEmail = () =>{
+  const [emailInput, setEmailInput] = useState("")
+  const [subjectInput, setSubjectInput] = useState("")
+  const [textInput, setTextInput] = useState("")
+
+
 	return(
 		<div>
       <div className="position-sticky">
@@ -34,17 +40,17 @@ export const SendEmail = () =>{
                 <div className="row  mx-2">
                   <div className="col-md-11 mt-5 d-flex align-items-center">
                     <label htmlFor="" className="pe-4"> To: </label>
-                    <input className="form-control form-dark py-2 px-3" type="email" placeholder="jerryMark@gmail.com"/>
+                    <input className="form-control form-dark py-2 px-3" type="email" placeholder="jerryMark@gmail.com"   value={emailInput} onChange={(e) => setEmailInput(e.target.value)}/>
                   </div>
 
                   <div className="col-md-11 mt-4 d-flex align-items-center">
                     <label htmlFor="" className="pe-4">Subject: </label>
-                    <input className=" form-control form-dark py-2 px-3" type="text"/>
+                    <input className=" form-control form-dark py-2 px-3" type="text"  value={subjectInput} onChange={(e) => setSubjectInput(e.target.value)}/>
                   </div>
                   
                   
                   <div className="col-md-11 mt-4">
-                    <textarea className="form-control form-dark" id="diabilityYes" rows="6" placeholder="text..."></textarea>
+                    <textarea className="form-control form-dark" id="diabilityYes" rows="6" placeholder="text..."   value={textInput} onChange={(e) => setTextInput(e.target.value)}></textarea>
 
                   </div>
 

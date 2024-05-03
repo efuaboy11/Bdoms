@@ -3,8 +3,11 @@ import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import pic from "../../img/pexels-andrea-piacquadio-762041 (2).jpg"
+import { useState } from "react"
 
 export const ViewEventUploaded= () =>{
+  const[eventID, setEventID] = useState("")
+  const [eventName, setEventName] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -26,11 +29,11 @@ export const ViewEventUploaded= () =>{
             <form action="">
               <div className="row add-student justify-content-evenly">
                 <div className="col-sm-3 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by ID..."/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by ID..." value={eventID} onChange={(e) => setEventID(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-3 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input" placeholder="Search by Name..."/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input" placeholder="Search by Name..." value={eventName} onChange={(e) => setEventName(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-1 mb-3">

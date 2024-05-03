@@ -1,8 +1,10 @@
 import "../css/dashboard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCircleUser, faHouse, faMoneyBills, faChartSimple, faCartShopping, faAngleDown, faChartLine, faBookOpenReader, faBookOpen, faBell,faArrowLeft, faBars, faXmark, faL} from "@fortawesome/free-solid-svg-icons"
-import { useEffect,  useRef, useState} from "react"
+import { useContext, useEffect,  useRef, useState} from "react"
 import { Link, useLocation} from "react-router-dom"
+import AuthContext from "../context/AuthContext"
+
 
 export const AdminDashFrame = () =>{
   const [overlay, setOverlay] = useState(false)
@@ -88,8 +90,8 @@ export const AdminDashFrame = () =>{
     const toogleEmailDropdownOpen = () =>{
       setIsEmailDropdownOpen(!isEmailDropdownOpen)
     }
-  
 
+    const {logoutUser} = useContext(AuthContext)
 
 
 
@@ -361,7 +363,7 @@ export const AdminDashFrame = () =>{
             <a href="#" class="mx-3 text-light   text-center student-info-link">
             </a>
             <div class="">
-              <button class="me-3 button-sign-out">Sign Out </button>
+              <button class="me-3 button-sign-out" onClick={logoutUser}>Sign Out </button>
             </div>
           </div>
         </nav>  

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import pic from "../../img/pexels-andrea-piacquadio-762041 (2).jpg"
+import { useState } from "react"
 
 export const ViewPictureUploaded= () =>{
+  const [ID, setID] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -26,7 +28,7 @@ export const ViewPictureUploaded= () =>{
             <form action="">
               <div className="row add-student justify-content-evenly">
                 <div className="col-sm-10 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by ID..."/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by ID..." value={ID} onChange={(e) => setID(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-1 mb-3">

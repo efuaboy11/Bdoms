@@ -3,8 +3,12 @@ import "../css/style.css"
 import { Link, useLocation } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Navbar } from "../component/navbar"
+import { useState } from "react"
 
 export const Contact = () =>{
+  const [contactName, setContactName] = useState("")
+  const[contactEmail, setContactEmail] = useState("")
+  const[message, setMessage] = useState("")
   const location = useLocation();
   const isActive = (path) =>{
     return location.pathname === path
@@ -41,17 +45,17 @@ export const Contact = () =>{
             <form action="" class="row g-3">
               <div class="col-md-11">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="e.g John Smith" />
+                <input type="text" class="form-control" id="name" placeholder="e.g John Smith" value={contactName} onChange={(e) => setContactName(e.target.value)}/>
               </div>
 
               <div class="col-md-11">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="name" placeholder="e.g @johnsmith.gmail.com" />
+                <input type="email" class="form-control" id="name" placeholder="e.g @johnsmith.gmail.com" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)}/>
               </div>
 
               <div class="mb-3 col-md-11">
                 <label for="diabilityYes" class="form-label">Message</label>
-                <textarea class="form-control" id="diabilityYes" rows="9"></textarea>
+                <textarea class="form-control" id="diabilityYes" rows="9" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
               </div>
 
               <div class="col-12">

@@ -2,8 +2,10 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const AddSession = () =>{
+  const [session, setSession] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -32,7 +34,7 @@ export const AddSession = () =>{
 
                 <div className="row justify-content-center mx-2">
                   <div className="col-md-10 mt-5">
-                    <input className="delete-student-input form-dark py-2 px-3" type="text" placeholder="Enter Session..."/>
+                    <input className="delete-student-input form-dark py-2 px-3" type="text" placeholder="Enter Session..." value={session} onChange={(e) => setSession(e.target.value)}/>
                   </div>
                   <div className="col-md-10 pt-3 pb-5 mb-4">
                     <input className="admin-btn py-2 px-5" type="submit" />                    

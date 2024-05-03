@@ -2,8 +2,22 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const UploadPicture = () =>{
+  const [img, setImg] = useState("")
+  const [date, setDate] = useState("")
+  const [description, setDescription] = useState("") 
+
+
+  const handleImgFile = (event) => {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      setImg(file); 
+    } else {
+      setImg(null); 
+    }
+  };
 	return(
 		<div>
       <div className="position-sticky">
@@ -33,15 +47,15 @@ export const UploadPicture = () =>{
                   <div className="row  mx-2">
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="p-2">Image</label>
-                        <input className="admin-input form-dark py-2 px-3" type="file"/>
+                        <input className="admin-input form-dark py-2 px-3" type="file" value={handleImgFile}/>
                       </div>
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="p-2">Date</label>
-                        <input className="admin-input form-dark py-2 px-3" type="datetime-local"/>
+                        <input className="admin-input form-dark py-2 px-3" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)}/>
                       </div>
                       <div className="col-md-12 mt-3">
                         <label htmlFor="" className="p-2">Picture description</label>
-                        <textarea className="admin-input form-dark py-2 px-3"></textarea>
+                        <textarea className="admin-input form-dark py-2 px-3" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                       </div>
                       <div className="col-md-10 pt-3 pb-5 mb-4">
                         <input className="admin-btn py-2 px-5" type="submit" />

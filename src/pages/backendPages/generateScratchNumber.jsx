@@ -2,8 +2,12 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const GenerateScratchNumber = () =>{
+  const [session, setSession] = useState("")
+  const [term, setTerm] =useState("")
+  const [date, setDate] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -35,21 +39,21 @@ export const GenerateScratchNumber = () =>{
 
                     <div className="col-md-6 mt-3">
                       <label htmlFor="" className="form-label">Session</label>
-                      <select  className="form-select form-control compulsory form-dark">
+                      <select  className="form-select form-control compulsory form-dark"  value={session} onChange={(e) => setSession(e.target.value)}>
                         <option>...</option>
                       </select>
                     </div> 
 
                     <div className="col-md-6 mt-3">
                       <label htmlFor="" className="form-label">Term</label>
-                      <select  className="form-select form-control compulsory form-dark">
+                      <select  className="form-select form-control compulsory form-dark"  value={term} onChange={(e) => setTerm(e.target.value)}>
                         <option>...</option>
                       </select>
                     </div>
 
                     <div className="col-md-6 mt-3">
                       <label htmlFor="" className="form-label">Date</label>
-                      <input type="datetime-local" className=" admin-input form-control compulsory form-dark py-2 px-3"/>
+                      <input type="datetime-local" className=" admin-input form-control compulsory form-dark py-2 px-3"  value={date} onChange={(e) => setDate(e.target.value)}/>
                     </div>
                     
                     <div className="col-md-10 pt-3 pb-5 mb-4">

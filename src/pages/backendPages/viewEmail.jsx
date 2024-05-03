@@ -3,8 +3,10 @@ import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import pic from "../../img/pexels-andrea-piacquadio-762041 (2).jpg"
+import { useState } from "react"
 
 export const ViewEmail = () =>{
+  const [email, setEmail] = useState("") 
 	return(
 		<div>
       <div className="position-sticky">
@@ -26,7 +28,7 @@ export const ViewEmail = () =>{
             <form action="">
               <div className="row add-student">
                 <div className="col-sm-10 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search For session"/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-1 mb-3">

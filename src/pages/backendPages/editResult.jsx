@@ -2,8 +2,13 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const EditResult = () =>{
+  const [studentID, setStudentID] = useState("")
+  const [term, setTerm] = useState("")
+  const [session, setSession] = useState("")
+
 	return(
 		<div>
       <div className="position-sticky">
@@ -35,12 +40,12 @@ export const EditResult = () =>{
 
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Student ID</label>
-                        <input type="text" className=" admin-input form-control compulsory form-dark py-2 px-3"  placeholder="Student ID..."/>
+                        <input type="text" className=" admin-input form-control compulsory form-dark py-2 px-3"  placeholder="Student ID..."  value={studentID} onChange={(e) => setStudentID(e.target.value)}/>
                      </div>
                       
                       <div  className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Term</label>
-                        <select id="inputSex" className="form-select form-control compulsory form-dark admin-input  py-2 px-3 ">
+                        <select id="inputSex" className="form-select form-control compulsory form-dark admin-input  py-2 px-3 "  value={term} onChange={(e) => setTerm(e.target.value)}>
                           <option value="">...</option>
                           <option value="">First Term</option>
                           <option value="">Second Term</option>
@@ -49,7 +54,7 @@ export const EditResult = () =>{
                       </div>
                       <div  className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Session</label>
-                        <select id="inputSex" className="form-select form-control compulsory form-dark admin-input  py-2 px-3 ">
+                        <select id="inputSex" className="form-select form-control compulsory form-dark admin-input  py-2 px-3 "  value={session} onChange={(e) => setSession(e.target.value)}>
                           <option value="">...</option>
                           </select>
                       </div>

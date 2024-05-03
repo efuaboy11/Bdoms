@@ -2,8 +2,13 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const UploadScheme = () =>{
+  const [className, setClassName] = useState("")
+  const [term, setTerm] = useState("")
+  const [session, setSession] = useState("")
+  const [date, setDate] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -32,26 +37,26 @@ export const UploadScheme = () =>{
                   <div className="row  mx-2">
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Class</label>
-                        <select className="form-select form-control compulsory form-dark">
+                        <select className="form-select form-control compulsory form-dark" value={className} onChange={(e) => setClassName(e.target.value)}>
                           <option>...</option>
                           </select>
                       </div>
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Term</label>
-                        <select className="form-select form-control compulsory form-dark">
+                        <select className="form-select form-control compulsory form-dark" value={term} onChange={(e) => setTerm(e.target.value)}>
                           <option>...</option>
                           </select>
                       </div>
 
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Session</label>
-                        <select className="form-select form-control compulsory form-dark">
+                        <select className="form-select form-control compulsory form-dark" value={session} onChange={(e) => setSession(e.target.value)}>
                           <option>...</option>
                           </select>
                       </div>
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="form-label">Date</label>
-                        <input className="admin-input form-dark py-2 px-3" type="datetime-local" />
+                        <input className="admin-input form-dark py-2 px-3" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)}/>
                       </div>
                       <div className="col-md-10 pt-3 pb-5 mb-4">
                         <Link to="/admin/uploadSchemePage" className="admin-btn py-2 px-5">Submit</Link>

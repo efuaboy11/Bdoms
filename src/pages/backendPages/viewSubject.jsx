@@ -3,8 +3,11 @@ import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import pic from "../../img/pexels-andrea-piacquadio-762041 (2).jpg"
+import { useState } from "react"
 
 export const ViewSubject = () =>{
+  const [className, setClassName] = useState("")
+  const [subject, setSubject] = useState("")
 	return(
 		<div>
       <div className="position-sticky">
@@ -26,11 +29,11 @@ export const ViewSubject = () =>{
             <form action="">
               <div className="row add-student">
                 <div className="col-sm-4 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by Class..."/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input " placeholder="Search by Class..." value={className} onChange={(e) => setClassName(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-4 mb-4">
-                  <input type="text" className=" p-2 form-dark border-radius admin-input" placeholder="Search by Subject..."/>
+                  <input type="text" className=" p-2 form-dark border-radius admin-input" placeholder="Search by Subject..." value={subject} onChange={(e) => setSubject(e.target.value)}/>
                 </div>
 
                 <div className="col-sm-1 mb-3">

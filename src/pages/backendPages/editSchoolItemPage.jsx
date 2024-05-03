@@ -2,8 +2,23 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 
 export const EditSchoolItemPage = () =>{
+  const [name, setName] = useState("")
+  const [amount, setAmount] = useState("")
+  const [imgFile, setImgFile] = useState("")
+
+  const handleImgFile = (event) => {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      setImgFile(file); 
+    } else {
+      setImgFile(null); 
+    }
+  };
+
+
 	return(
 		<div>
       <div className="position-sticky">
@@ -29,15 +44,15 @@ export const EditSchoolItemPage = () =>{
                   <div className="row  mx-2">
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="p-2">Name</label>
-                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter name..."/>
+                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter name..."  value={name} onChange={(e) => setName(e.target.value)}/>
                       </div>
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="p-2">Amount</label>
-                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter Amount.."/>
+                        <input className="admin-input form-dark py-2 px-3" type="text" placeholder="Enter Amount.."  value={amount} onChange={(e) => setAmount(e.target.value)}/>
                       </div>
                       <div className="col-md-6 mt-3">
                         <label htmlFor="" className="p-2">Image</label>
-                        <input className="admin-input form-dark py-2 px-3" type="file" placeholder="Search Teacher ID..."/>
+                        <input className="admin-input form-dark py-2 px-3" type="file" placeholder="Search Teacher ID..." onChange={handleImgFile}/>
                       </div>
                       <div className="col-md-10 pt-3 pb-5 mb-4">
                         <button className="admin-btn py-2 px-5">Update</button>
