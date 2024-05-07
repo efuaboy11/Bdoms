@@ -1,4 +1,3 @@
-import "aos/dist/aos.css"
 import "../css/style.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
@@ -40,7 +39,6 @@ export const Portal = () =>{
                           <p className="btn btn-lg primary-background app-btn">{loading ? <CircularProgress color="inherit"/> : "Login"}</p>
                         </div>
                       </form>
-                      <DevTool control={control}/>
                       <p className="p-3">Proudly developed by <a href="#">Ehiz</a></p>
                     </div>
                   </div>
