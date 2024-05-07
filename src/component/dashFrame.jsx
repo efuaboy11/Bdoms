@@ -1,8 +1,9 @@
 import "../css/dashboard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCircleUser, faHouse, faMoneyBills, faChartSimple, faCartShopping, faAngleDown, faChartLine, faBookOpenReader, faBookOpen, faBell,faArrowLeft, faBars, faXmark} from "@fortawesome/free-solid-svg-icons"
-import { useEffect,  useRef, useState} from "react"
+import { useContext, useEffect,  useRef, useState} from "react"
 import { Link, useLocation} from "react-router-dom"
+import AuthContext from "../context/AuthContext"
 
 export const DashFrame = () =>{
   const [overlay, setOverlay] = useState(false)
@@ -47,6 +48,8 @@ export const DashFrame = () =>{
       studentInfo.current.style.transition = `all ${4}s ease `
     }
   }
+
+  const {logoutUser} = useContext(AuthContext)
 
   return(
     <div>
@@ -197,7 +200,7 @@ export const DashFrame = () =>{
             <FontAwesomeIcon icon={faCircleUser} onClick={showStudentInfo} className="sm-text"/> 
             </a>
             <div class="">
-              <button class="me-3 button-sign-out">Sign Out </button>
+              <button class="me-3 button-sign-out" onClick={logoutUser}>Sign Out </button>
             </div>
           </div>
         </nav>  

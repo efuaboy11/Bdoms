@@ -2,7 +2,7 @@ import { AdminDashFrame} from "../../component/adminDashFRame"
 import { Link } from "react-router-dom"
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const AddStudent = () =>{
   const [firstName, setFirstName] = useState("")
@@ -24,6 +24,8 @@ export const AddStudent = () =>{
   const [disability, setDisability] = useState('')
   const [passportFile, setPassportFile] = useState(null);
 
+  const [classes, setClasses] = useState("")
+
   // Event handler for when file input value changes
   const handlePassportFile = (event) => {
     // Check if any file is selected
@@ -36,11 +38,90 @@ export const AddStudent = () =>{
     }
   };
 
+  const getClasses = async() => {
+    try {
+      const response = await fetch("https://bdmos.onrender.com/api/class/", {
+        method: "GET",
+        headers:{
+          "Content-Type":"application/json"
+        }
+      })
+      const data = await response.json()
 
-  
+      if(response.status === 200){
+        setClasses(data)
+      }else{
+        console.error("Failed to fetch user details:", response.statusText)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
+  const addStudent = async(e) => {
+    e.preventDefault()
 
-  
+    const formData = new FormData()
+    formData.append("first_name", firstName);
+    formData.append("middle_name", middleName);
+    formData.append("last_name", lastName);
+    formData.append("date_of_birth", DOB);
+    formData.append("sex", sex);
+    formData.append("father_name", fatherName);
+    formData.append("mother_name", motherName);
+    formData.append("gurdian_name", gurdianName);
+    formData.append("parents_phone_number", parentNumber);
+    formData.append("parents_email", parentEmail);
+    formData.append("state_of_origin", SOG);
+    formData.append("religion", religion);
+    formData.append("disability", disabilityOption);
+    formData.append("student_class", classOption);
+    formData.append("city_or_town", city);
+    formData.append("previous_school", previousSChool);
+    formData.append("disability_note", disability);
+    formData.append("passport", passportFile);
+
+    console.log(formData)
+
+    try {
+      const response = await fetch("https://bdmos.onrender.com/api/students/", {
+        method: "POST",
+        body: formData
+      })
+      if (response.status === 201){
+        console.log("Student Created Successfully")
+        setFirstName("")
+        setMiddleName("")
+        setLastName("")
+        setDOB("")
+        setSex("")
+        setFatherName("")
+        setMotherName("")
+        setGurdianName("")
+        setParetNumber("")
+        setParentEmail("")
+        setSOG("")
+        setReligion("")
+        setDisabilityOption("")
+        setClassOption("")
+        setCity("")
+        setPreviousSchool("")
+        setDisability("")
+        setPassportFile("")
+      }else{
+        const errorData = await response.json()
+        const errorMessage = errorData.error
+        console.log(errorMessage)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getClasses()
+  }, [classes])
+
   return(
     <div>
       <div className="position-sticky">
@@ -71,7 +152,7 @@ export const AddStudent = () =>{
 
               <div className="col-lg-4 col-xxl-3 col-md-6">
                 <label htmlFor="" className="form-label">Middle Name</label>
-                <input type="text" className="form-control form-dark" id="student-first-name" value={middleName} onChange={(e) => setLastName(e.target.value)}/>
+                <input type="text" className="form-control form-dark" id="student-first-name" value={middleName} onChange={(e) => setMiddleName(e.target.value)}/>
               </div>
 
               <div className="col-lg-4 col-xxl-3 col-md-6">
@@ -81,15 +162,15 @@ export const AddStudent = () =>{
 
               <div className="col-lg-4 col-xxl-3 col-md-6">
                 <label htmlFor="" className="form-label">DOB <span className="red-text">*</span></label>
-                <input type="datetime-local" className="form-control compulsory form-dark" id="student-first-name" value={DOB} onChange={(e) => setDOB(e.target.value)}/>
+                <input type="date" className="form-control compulsory form-dark" id="student-first-name" value={DOB} onChange={(e) => setDOB(e.target.value)}/>
               </div>
 
               <div className="col-lg-4 col-xxl-3 col-md-6">
                 <label htmlFor="" className="form-label">Sex <span className="red-text">*</span></label>
                 <select id="inputSex" className="form-select form-control compulsory form-dark" value={sex} onChange={(e) => setSex(e.target.value)}>
                   <option>...</option>
-                  <option>Male</option>
-                  <option>Female</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
                   </select>
               </div>
 
@@ -123,39 +204,39 @@ export const AddStudent = () =>{
                   <label for="inputState" className="form-label">State of origin <span className="red-text">*</span></label>
                   <select id="inputState" className="form-select form-control compulsory form-dark "value={SOG} onChange={(e) => setSOG(e.target.value)}>
                     <option selected>Abia</option>
-                    <option>Adamawa</option>
-                    <option>Akwa ibom</option>
-                    <option>Anambra</option>
-                    <option>Bauchi</option>
-                    <option>Bayelsa</option>
-                    <option>Benue</option>
-                    <option>Borno</option>
-                    <option>Crossriver</option>
-                    <option>Delta</option>
-                    <option>Ebonyi</option>
-                    <option>Edo</option>
-                    <option>Ekiti</option>
-                    <option>Enugu</option>
-                    <option>Imo</option>
-                    <option>Jigawa</option>
-                    <option>Kaduna</option>
-                    <option>Kano</option>
-                    <option>Kastina</option>
-                    <option>Kebbi</option>
-                    <option>Kogi</option>
-                    <option>Kwara</option>
-                    <option>Lagos</option>
-                    <option>Nasarawa</option>
-                    <option>Niger</option>
-                    <option>Ogun</option>
-                    <option>Ondo</option>
-                    <option>Osun</option>
-                    <option>Oyo</option>
-                    <option>plateau</option>
-                    <option>Rivers</option>
-                    <option>Sokoto</option>
-                    <option>Taraba</option>
-                    <option>Yobe</option>
+                    <option value="adamawa">Adamawa</option>
+                    <option value="akwa ibom">Akwa ibom</option>
+                    <option value="anambra">Anambra</option>
+                    <option value="bauchi">Bauchi</option>
+                    <option value="bayelsa">Bayelsa</option>
+                    <option value="benue">Benue</option>
+                    <option value="borno">Borno</option>
+                    <option value="cross river">Crossriver</option>
+                    <option value="delta">Delta</option>
+                    <option value="ebonyi">Ebonyi</option>
+                    <option value="edo">Edo</option>
+                    <option value="ekiti">Ekiti</option>
+                    <option value="enugu">Enugu</option>
+                    <option value="imo">Imo</option>
+                    <option value="jigawa">Jigawa</option>
+                    <option value="kaduna">Kaduna</option>
+                    <option value="kano">Kano</option>
+                    <option value="kastina">Kastina</option>
+                    <option value="kebbi">Kebbi</option>
+                    <option value="kogi">Kogi</option>
+                    <option value="kwara">Kwara</option>
+                    <option value="lagos">Lagos</option>
+                    <option value="nasarawa">Nasarawa</option>
+                    <option value="niger">Niger</option>
+                    <option value="ogun">Ogun</option>
+                    <option value="ondo">Ondo</option>
+                    <option value="osun">Osun</option>
+                    <option value="oyo">Oyo</option>
+                    <option value="plateau">plateau</option>
+                    <option value="rivers">Rivers</option>
+                    <option value="sokoto">Sokoto</option>
+                    <option value="taraba">Taraba</option>
+                    <option value="yobe">Yobe</option>
                   </select>
                 </div>
 
@@ -163,17 +244,17 @@ export const AddStudent = () =>{
                 <label htmlFor="" className="form-label">Religion <span className="red-text">*</span></label>
                 <select id="inputSex" className="form-select form-control compulsory form-dark" value={religion} onChange={(e) => setReligion(e.target.value)}>
                   <option>...</option>
-                  <option>Christian</option>
-                  <option>Muslim</option>
-                  <option>others</option>
+                  <option value="christian">Christian</option>
+                  <option value="muslim">Muslim</option>
+                  <option value="others">others</option>
                   </select>
               </div>
 
               <div className="col-lg-4 col-xxl-3 col-md-6">
                 <label for="inputDisability" className="form-label">Disabily <span className="red-text">*</span></label>
                 <select id="inputDisability" className="form-select form-control compulsory form-dark" value={disabilityOption} onChange={(e) => setDisabilityOption(e.target.value)}>
-                  <option selected>No</option>
-                  <option>Yes</option>
+                  <option selected value="no">No</option>
+                  <option value="yes">Yes</option>
                 </select>
               </div>
 
@@ -181,6 +262,9 @@ export const AddStudent = () =>{
                 <label for="inputDisability" className="form-label">Class <span className="red-text">*</span></label>
                 <select id="inputDisability" className="form-select form-control compulsory form-dark" value={classOption} onChange={(e) => setClassOption(e.target.value)}>
                   <option selected>...</option>
+                  {classes && classes.map((clas) => (
+                    <option value={clas.id} key={clas.id}>{clas.name}</option>
+                  ))}
                 </select>
               </div>
 
@@ -206,7 +290,7 @@ export const AddStudent = () =>{
             </div>
 
             <div className="py-4">
-              <input className="admin-btn py-2 px-5" type="submit" />
+              <input className="admin-btn py-2 px-5" type="submit" onClick={addStudent}/>
             </div>
            
           </form>
