@@ -18,9 +18,12 @@
     "@types/node": "^16.18.68",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
     "aos": "^2.3.4",
     "bootstrap-icons": "^1.11.2",
     "chart.js": "^4.4.2",
+    "eslint": "^9.2.0",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -57,9 +60,6 @@
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
     "@types/aos": "^3.0.7",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "eslint": "^9.2.0",
     "typescript": "^5.4.5"
   }
 }
